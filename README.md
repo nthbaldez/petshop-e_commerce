@@ -1,62 +1,88 @@
-![image](https://user-images.githubusercontent.com/40845824/121069742-3accdb00-c7a4-11eb-87d0-3dc47e433762.png)
+<h1 align="center" style="font-weight: bold;">Todo App 💻</h1>
 
+<p align="center">
+ <a href="#tech">Technologies</a> • 
+ <a href="#started">Getting Started</a> • 
+  <a href="#colab">Collaborators</a> •
+ <a href="#contribute">Contribute</a>
+</p>
 
-# 🚀 Front end challenge
+<p align="center">
+    <b>A Pet Shop E-commerce builded with NextJS.</b>
+</p>
 
-Bem-vindo(a). Este é o desafio Front end!
+<!-- <p align="center">
+  <a href="https://focustodo.vercel.app/">📱 Visit this Project</a>
+</p> -->
 
-O objetivo deste desafio é avaliar suas habilidades de programação.
-Quando sua solução estiver pronta, basta responder o e-mail que recebeu com o link do seu repo aqui no Github!
-Em seguida, enviaremos o feedback e as instruções dos próximos passos!
+<h2 id="layout">🎨 Layout</h2>
 
-Caso tenha alguma dúvida, nós estamos disponíveis no email *recrutamento@rocketseat.com.br*
-Bom desafio!
+<p align="center">
+    <img src="" alt="Image Example" width="400px">
+</p>
 
-> ⚠️ **É importante que o seu repo esteja público, caso contrário não iremos conseguir avaliar sua resposta**
+<h2 id="technologies">💻 Technologies</h2>
 
-# 🧠 Contexto
+- React
+- NextJS
+- Typescript
+- Styled-components
+- Hooks
+- GraphQL
 
-![Protótipo](https://storage.googleapis.com/xesque-dev/challenge-images/prototipo.png?42)
+<h2 id="started">🚀 Getting started</h2>
 
-O desafio será implementar um e-commerce para venda de canecas e camisetas que deverá ter as seguintes funcionalidades:
-- [ ] Catálogo de produtos com paginação
-- [ ] Filtragem produtos por categoria
-- [ ] Busca por nome do produto
-- [ ] Adicionar e remover produtos do carrinho
-- [ ] Finalizar compra
+<h3>Prerequisites</h3>
 
-## 📋 Instruções
+Here are the prerequisites to run this project:
 
-Chegou a hora de colocar a mão na massa!
+- [NodeJS](https://nodejs.org/en)
+- [Git](https://git-scm.com/downloads)
 
-- Siga [esse protótipo](https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?node-id=680%3A6449)
-- Utilize Next.js e Typescript
-- Faça a estilização com styled-components
-- Utilize o local storage para gerenciar o carrinho
-- Por favor, inclua no README as instruções de instalação do projeto
-- Sinta-se livre para incluir quaisquer observações
-- Consuma nossa **API GraphQL** rodando o comando `yarn start` na pasta `api`
+<h3>Cloning</h3>
 
-## ✔️ Critérios de Avaliação
+How to clone this project
 
-Além dos requisitos levantados acima, iremos olhar para os seguintes critérios durante a correção do desafio:
+```bash
+git clone https://github.com/nthbaldez/todo-app-typescript.git
+```
 
-- Gerenciamento de estado
-- Componentização
-- Responsividade
-- Preocupação com usabilidade
-- Preocupação com acessibilidade
-- Testes e2e
-- Padrões de código
-- Padrão de commits (_Conventional_)
+<h3>Starting</h3>
 
-## 😎 Seria legal
-- Fazer deploy na vercel ou em outro local de sua preferência e disponibilizar um link de visualização, se necessário utilize esse servidor para a API GraphQL:  https://rocketseat-frontend-challenge.herokuapp.com/
-- Testes unitários
-- Utilização de cache do Next.js
+How to start your project
 
----
+```bash
+cd project-name
+npm install
+npm run dev
+```
 
-_O desafio acima foi cuidadosamente construído para propósitos de avaliação apenas. Já possuimos uma funcionalidade similar na nossa plataforma._
+<h2 id="colab">🤝 Collaborators</h2>
 
-Made with 💜 at Rocketseat
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/nthbaldez" width="100px;" alt="Nathan Baldez Developer Profile"/><br>
+        <sub>
+          <b>Nathan Baldez</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<h2 id="contribute">📫 Contribute</h2>
+
+Here you will explain how other developers can contribute to your project. For example, explaining how can create their branches, which patterns to follow and how to open an pull request
+
+1. `git clone https://github.com/nthbaldez/todo-app-typescript.git`
+2. `git checkout -b feature/NAME`
+3. Follow commit patterns
+4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
+
+<h3>Documentations that might help</h3>
+
+[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
+
+[💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
