@@ -1,5 +1,8 @@
+"use client"
+
 import styled from "styled-components";
 import SearchIcon from "./icons/SearchIcon";
+import { InputHTMLAttributes } from "react";
 
 const InputContainer = styled.div`
   width: 24rem;
@@ -31,12 +34,12 @@ const PrimaryInput = styled.input`
     outline: 0;
   }
 `
+interface InputPrimaryProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-
-export default function PrimaryInputSearch() {
+export default function PrimaryInputSearch(props: InputPrimaryProps) {
   return (
     <InputContainer>
-      <PrimaryInput placeholder="Procurando por algo específico?"/>
+      <PrimaryInput {...props}/>
       <SearchIcon />
     </InputContainer>
   )

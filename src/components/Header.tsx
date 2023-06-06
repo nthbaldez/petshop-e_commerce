@@ -35,9 +35,9 @@ const Logo = styled.a`
 export default function Header() {
   return (
     <HeaderContainer>
-      <Logo>Pet Shop <br></br><span>Amigos do Johnny</span></Logo>
+      <Logo href="/">Pet Shop <br></br><span>Amigos do Johnny</span></Logo>
       <SearchAndCartContainer>
-        <PrimaryInputSearch/>
+        <PrimaryInputSearch placeholder='Procurando por algo específico?'/>
         <CartControl />
       </SearchAndCartContainer>
     </HeaderContainer>
