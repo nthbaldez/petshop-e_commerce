@@ -5,7 +5,7 @@ import SearchIcon from "./icons/SearchIcon";
 import { InputHTMLAttributes } from "react";
 
 const InputContainer = styled.div`
-  width: 24rem;
+  width: 22rem;
   position: relative;
   
   svg {
@@ -23,7 +23,7 @@ const PrimaryInput = styled.input`
   border-radius: 6px;
   border: none;
 
-  padding: 10px 16px;
+  padding: 10px 15px;
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;

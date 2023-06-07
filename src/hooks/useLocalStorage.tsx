@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 
 export default function useLocalStorage<T>(item: string, initialValue: T) {
   const [ value, setValue ] = useState<T>(initialValue);
+
   
   useEffect(() => {
-    // Perform localStorage action
-      let localStorageValue = JSON.parse(localStorage.getItem(item) ?? '');
-      setValue(localStorageValue);
-
+    if (typeof window === 'undefined') return;
+    
+    let localStorageValue = localStorage.getItem(item);
+    console.log(localStorageValue)
+    
+    if (localStorageValue) {
+      setValue(JSON.parse(localStorageValue));
+    }
   }, [item])
 
   const updateLocalStorage = (newValue: T) => {

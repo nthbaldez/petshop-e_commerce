@@ -37,7 +37,7 @@ export default function Header() {
     <HeaderContainer>
       <Logo href="/">Pet Shop <br></br><span>Amigos do Johnny</span></Logo>
       <SearchAndCartContainer>
-        <PrimaryInputSearch placeholder='Procurando por algo específico?'/>
+        <PrimaryInputSearch placeholder="Procurando por algo específico?"/>
         <CartControl />
       </SearchAndCartContainer>
     </HeaderContainer>
