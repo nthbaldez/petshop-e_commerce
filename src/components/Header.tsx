@@ -8,7 +8,6 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 2rem 10rem;
   background-color: var(--blue-600);
 `

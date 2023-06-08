@@ -8,7 +8,6 @@ export default function useLocalStorage<T>(item: string, initialValue: T) {
     if (typeof window === 'undefined') return;
     
     let localStorageValue = localStorage.getItem(item);
-    console.log(localStorageValue)
     
     if (localStorageValue) {
       setValue(JSON.parse(localStorageValue));

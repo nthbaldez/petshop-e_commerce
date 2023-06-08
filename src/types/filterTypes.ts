@@ -1,5 +1,5 @@
 export enum FilterTypes {
-  'clothes',
-  'toy',
-  'food'
+  'ALL',
+  'DOGS',
+  'CATS',
 }
