@@ -1,14 +1,14 @@
 import axios, { AxiosPromise } from "axios";
 import { useQuery } from "react-query";
-
-
+import { useFilter } from "./useFilter";
+import { mountQuery } from "@/utils/mountFilters";
 
 interface Product {
   name: string;
   price_in_cents: number;
   id: string;
+  image_url: string;
 }
-
 
 interface ProductsFetchResponse {
   data: {
@@ -16,28 +16,18 @@ interface ProductsFetchResponse {
   }
 }
 
-const fetchProducts = (): AxiosPromise<ProductsFetchResponse> => {
-  const API_URL = "http://localhost:3333/";
-  const queryAll = 
-  `query {
-      allProducts {
-        id,
-        name,
-        price_in_cents
-      }
-    }
-  `
-  return axios.post(API_URL, 
-    {
-      query: queryAll
-    }
-  );
+const fetchProducts = (query: string): AxiosPromise<ProductsFetchResponse> => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
+  return axios.post(API_URL, { query });
 }
 
 export function useProducts() {
+  const { type, priority } = useFilter();
+
+  const queryMounted = mountQuery(type, priority);
   const { data } = useQuery({
-    queryFn: fetchProducts,
-    queryKey: ['products-data'], 
+    queryFn: () => fetchProducts(queryMounted),
+    queryKey: ['products-data', type], 
   });
 
   return {

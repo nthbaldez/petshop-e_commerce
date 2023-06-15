@@ -2,7 +2,6 @@
 
 import { useProducts } from "@/hooks/useProducts"
 import styled from "styled-components";
-import Image from 'next/image';
 import { ProductCard } from "./ProductCard";
 
 const ProductsContainer = styled.section`
@@ -10,17 +9,23 @@ const ProductsContainer = styled.section`
   grid-template-columns: repeat(auto-fill, 256px);
   max-width: 100%;
   gap: 32px;
+  margin-top: 36px;
 `
-
-
 
 export function ProductsList() {
   const { data } = useProducts();
+  console.log(data)
 
   return (
     <ProductsContainer>
       { data?.map(product => 
-          <ProductCard />
+          <ProductCard
+            key={product.id} 
+            name={product.name}
+            imageURL={product.image_url}
+            id={product.id}
+            price={product.price_in_cents}
+          />
         )
       }
     </ProductsContainer>
