@@ -9,16 +9,16 @@ export function getCategoryByType(type: FilterTypes) {
 }
 
 export function getProductsByPriority(priority: PriorityTypes) {
-  if(priority === PriorityTypes.NEWS) return {field: "created_at", order: "ASC"}
-  if(priority === PriorityTypes.BIGGEST_PRICE)  return {field: "price_in_cents", order: "ASC"}
-  if(priority === PriorityTypes.MINOR_PRICE) return {field: "price_in_cents", order: "ASC"}
+  if (priority === PriorityTypes.NEWS) return {field: "created_at", order: "ASC"}
+  if (priority === PriorityTypes.BIGGEST_PRICE)  return {field: "price_in_cents", order: "DSC"}
+  if (priority === PriorityTypes.MINOR_PRICE) return {field: "price_in_cents", order: "ASC"}
   return {field: "sales", order: "DSC"}
 }
 
 
 export const mountQuery = (type: FilterTypes, priority: PriorityTypes) => {
-  if(type === FilterTypes.ALL && priority === PriorityTypes.POPULARITY) return `query {
-      allProducts(sortField: "sales", sortOrder: "DSC") {
+  if (type === FilterTypes.ALL && priority === PriorityTypes.POPULARITY) return `query {
+      allProducts(sortField: "sales", sortOrder: "ASC") {
         id
         name
         price_in_cents
@@ -28,6 +28,7 @@ export const mountQuery = (type: FilterTypes, priority: PriorityTypes) => {
   `
   const sortSettings = getProductsByPriority(priority)
   const categoryFilter = getCategoryByType(type)
+  
   return `
   query {
       allProducts(sortField: "${sortSettings.field}", sortOrder: "${sortSettings.order}", ${categoryFilter ? `filter: { category: "${categoryFilter}"}`: ''}) {

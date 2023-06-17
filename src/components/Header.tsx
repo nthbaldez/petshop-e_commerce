@@ -3,13 +3,26 @@
 import styled from 'styled-components';
 import PrimaryInputSearch from './PrimaryInputSearch';
 import CartControl from './CartControl';
+import { useFilter } from '@/hooks/useFilter';
 
 const HeaderContainer = styled.header`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem 10rem;
+  gap: 10px;
+  padding: 12px 24px;
   background-color: var(--blue-600);
+
+
+  @media (min-width: 768px) {
+    padding: 2rem 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
 `
 
 const SearchAndCartContainer = styled.div`
@@ -23,20 +36,34 @@ const SearchAndCartContainer = styled.div`
 const Logo = styled.a`
   color: var(--blue-400);
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 103%;
 
   span {
     color: var(--white);
   }
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `
 
 export default function Header() {
+
+  const { search, setSearch } = useFilter()
   return (
     <HeaderContainer>
       <Logo href="/">Pet Shop <br></br><span>Amigos do Johnny</span></Logo>
       <SearchAndCartContainer>
-        <PrimaryInputSearch placeholder="Procurando por algo específico?"/>
+        <PrimaryInputSearch
+          value={search}
+          handleChange={setSearch} 
+          placeholder="Procurando por algo específico?"
+        />
         <CartControl />
       </SearchAndCartContainer>
     </HeaderContainer>
