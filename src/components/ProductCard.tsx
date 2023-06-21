@@ -1,7 +1,7 @@
 import { formatDescription } from "@/utils/formatDescription";
 import { formatPrice } from "@/utils/formatPrice";
 import styled from "styled-components";
-import { Tooltip } from '@chakra-ui/react'
+import { Link, Tooltip } from '@chakra-ui/react'
 
 interface ProductCardProps {
   name: string;
@@ -63,20 +63,24 @@ const Card = styled.div`
   
 `
 
-export function ProductCard(props: ProductCardProps) {
-  const priceFormatted = formatPrice(props.price);
-  const nameFormatted = formatDescription(props.name);
+export function ProductCard({price, name, imageURL, id}: ProductCardProps) {
+  const priceFormatted = formatPrice(price);
+  const nameFormatted = formatDescription(name);
 
   return (
-    <Card>
-      <img src={props.imageURL} alt={props.name} />
-      <div>
-        <Tooltip label={props.name} placement='top' bg='gray' color='white' hasArrow>
-          <h3>{nameFormatted}</h3>
-        </Tooltip>
-        <div></div>
-        <p>{priceFormatted}</p>
-      </div>
-    </Card>
+    <Link 
+      href="/product"
+    >
+      <Card>
+      <img src={imageURL} alt={name} />
+        <div>
+          <Tooltip label={name} placement='top' bg='gray' color='white' hasArrow>
+            <h3>{nameFormatted}</h3>
+          </Tooltip>
+          <div></div>
+          <p>{priceFormatted}</p>
+        </div>
+      </Card>
+    </Link>
   )
 }

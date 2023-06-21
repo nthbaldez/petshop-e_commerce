@@ -22,6 +22,10 @@ const HeaderContainer = styled.header`
     align-items: center;
   }
 
+  @media (min-width: 1440px) {
+    padding: 2rem 20rem;
+  }
+
   
 `
 

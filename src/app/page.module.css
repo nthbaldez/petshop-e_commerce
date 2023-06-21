@@ -7,4 +7,11 @@
   padding: 2rem 10rem;
 
   background-color: #DEDEDE;
+
+}
+
+@media (min-width: 1440px) {
+  .main {
+    padding: 2rem 20rem;
+  }
 }
