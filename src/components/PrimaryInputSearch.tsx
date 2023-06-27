@@ -17,7 +17,7 @@ const InputContainer = styled.div`
     height: 24px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.desktopBreakpoint}) {
     width: 22rem;
   }
 
@@ -38,7 +38,7 @@ const PrimaryInput = styled.input`
     outline: 0;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.desktopBreakpoint}) {
     font-size: 14px;
   }
 

@@ -1,7 +1,8 @@
 import { formatDescription } from "@/utils/formatDescription";
 import { formatPrice } from "@/utils/formatPrice";
 import styled from "styled-components";
-import { Link, Tooltip } from '@chakra-ui/react'
+import { Tooltip } from '@chakra-ui/react'
+import Link from 'next/link';
 
 interface ProductCardProps {
   name: string;
@@ -69,7 +70,15 @@ export function ProductCard({price, name, imageURL, id}: ProductCardProps) {
 
   return (
     <Link 
-      href="/product"
+      href={{
+        pathname: '/product',
+        query: {
+          priceFormatted,
+          imageURL,
+          id,
+          name
+        }
+      }}
     >
       <Card>
       <img src={imageURL} alt={name} />

@@ -47,7 +47,7 @@ const Logo = styled.a`
     color: var(--white);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.desktopBreakpoint}) {
     font-size: 1.5rem;
   }
 

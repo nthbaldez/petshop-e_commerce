@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import './globals.css'
 import { Roboto } from 'next/font/google'
 import { FilterContextProvider } from '@/contexts/FilterContext'
+import DefaultProviders from '@/components/defaultProviders'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'], 
@@ -21,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <FilterContextProvider>
+        <DefaultProviders>
           <Header />
           {children}
-        </FilterContextProvider>
+        </DefaultProviders>
       </body>
     </html>
   )

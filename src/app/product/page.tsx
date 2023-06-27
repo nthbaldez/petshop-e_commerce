@@ -2,6 +2,8 @@
 
 import BackArrow from '@/components/icons/BackArrow';
 import CartIcon from '@/components/icons/CartIcons';
+import { useProduct } from '@/hooks/useGetProduct';
+import { formatPrice } from '@/utils/formatPrice';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -11,6 +13,7 @@ const MainContainer = styled.main`
   justify-content: space-between;
   gap: 25px;
   padding: 2rem 10rem;
+  max-height: 100vh;
 
   a {
     > div {
@@ -117,7 +120,34 @@ const MainContainerProduct = styled.main`
   }
 `
 
-export default function Product() {
+interface SearchParamsProps {
+  searchParams: {
+    id: string;
+  }
+}
+
+export default function Product({searchParams}: SearchParamsProps) {
+  
+  const { data } = useProduct(searchParams.id);
+    
+  const handleAddToCart = () => {
+      let cartItems = localStorage.getItem('cart-items');
+      if (cartItems) {
+        let cartItemsArray = JSON.parse(cartItems);
+        
+        let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
+
+        if (existingProductIndex != -1){
+            cartItemsArray[existingProductIndex].quantity += 1;
+        } else {
+            cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
+        }
+        localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
+      } else {
+        const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
+        localStorage.setItem('cart-items', JSON.stringify(newCart));
+      }
+  }
   return (
     <MainContainer>
       <Link href="/">
@@ -128,22 +158,22 @@ export default function Product() {
       </Link>
       <MainContainerProduct>
         <div className="productImage">
-          <img src="https://images.petz.com.br/fotos/1669738862596.jpg" alt="" />
+          <img src={data?.image_url} alt="" />
         </div>
         <div className="productDescription">
           <div className="title">
-            <h3>Moletom</h3>
-            <h1>Moletom para cães</h1>
-            <strong>R$ 40,00</strong>
+            <h3>{data?.name.split(" ")[0]}</h3>
+            <h1>{data?.name}</h1>
+            <strong>{formatPrice(data?.price_in_cents) ?? 0}</strong>
           </div>
           
-          <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
+          <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$200,00.</p>
           
           <div className="description">
             <h3>DESCRIÇÃO</h3>
-            <p>Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.</p>
+            <p>{data?.description}</p>
           </div>
-          <button>
+          <button onClick={handleAddToCart}>
             <CartIcon />
             Adicionar ao carrinho
           </button>
