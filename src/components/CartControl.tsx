@@ -1,8 +1,9 @@
 "use client"
 
 import styled from "styled-components";
-import CartIcon from "./icons/CartIcons";
+import CartIcon from "./icons/CartIcon";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { useRouter } from "next/navigation";
 
 const CartButton = styled.button`
   position: relative;
@@ -24,14 +25,20 @@ const CartCount = styled.span`
   position: absolute;
   margin-left: -10px;
 `
+interface CartControlProps {
+  navigate: string;
+}
 
+export default function CartControl({ navigate }:CartControlProps ) {
+  const router = useRouter();
 
-export default function CartControl() {
-
+  function handleNavigateToCart() {
+    router.push(navigate);
+  }
   const { value } = useLocalStorage('cart-items', []);
 
   return (
-    <CartButton>
+    <CartButton onClick={handleNavigateToCart}>
       <CartIcon />
       {value.length > 0 && <CartCount>{value.length}</CartCount>}
     </CartButton>

@@ -5,7 +5,7 @@ import SearchIcon from "./icons/SearchIcon";
 import { InputHTMLAttributes } from "react";
 
 const InputContainer = styled.div`
-  width: 15.625rem;
+  width: 250px;
   position: relative;
   
   svg {
@@ -17,14 +17,14 @@ const InputContainer = styled.div`
     height: 24px;
   }
 
-  @media (min-width: ${props => props.theme.desktopBreakpoint}) {
-    width: 22rem;
+  @media(min-width: ${props => props.theme.desktopBreakpoint}){
+    width: 352px;
   }
 
 `
 const PrimaryInput = styled.input`
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
 
   padding: 10px 15px;

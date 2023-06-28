@@ -1,121 +1,108 @@
 "use client"
 
-import BackArrow from '@/components/icons/BackArrow';
-import CartIcon from '@/components/icons/CartIcons';
+import CartIcon from '@/components/icons/CartIcon';
 import { useProduct } from '@/hooks/useGetProduct';
 import { formatPrice } from '@/utils/formatPrice';
-import Link from 'next/link';
 import styled from 'styled-components';
+import { DefaultPageLayout } from '@/components/DefaultPageLayout';
+import BackButton from '@/components/BackButton';
 
 const MainContainer = styled.main`
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 25px;
-  padding: 2rem 10rem;
-  max-height: 100vh;
 
-  a {
-    > div {
+  section {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 32px;
+    margin-top: 24px;
+
+    img {
+      max-width: 640px;
+      width: 50%;
+      border-radius: 5px;
+    }
     
-      svg {
-        width: 24px;
-        height: 24px;
-        margin-right: 11px;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      button {
+        background: #115D8C;
+        mix-blend-mode: multiply;
+        border-radius: 4px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        &:hover {
+          opacity: 0.9;
+        }
       }
     }
-  }
-
-
-  @media (min-width: 1440px) {
-    padding: 2rem 20rem;
   }
 `
+const ProductDescription = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 
-const MainContainerProduct = styled.main`
-  display: grid;
-  grid-template-columns: 64% 36%;
-  gap: 32px;
-  max-width: 100%;
-
-  .productImage {
-    background-size: cover;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+  span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--blue-600);
   }
 
-  .productDescription {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    
-    p {
-      font-size: 12px;
-      margin-bottom: 58px;
-    }
+  h2 {
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 150%;
+    color: var(--blue-600);
+    margin-top: 12px;
+  }
 
-    .title {
-      color: var(--gray-400);
+  span:nth-of-type(2){
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--blue-600);
+    margin-bottom: 24px;
+  }
 
-      h3 {
-        margin-bottom: 12px;
-      }
+  p {
+    font-weight: 400;
+    font-size: 12px;
+    color: (--text-dark);
+  }
 
-      h1 {
-        margin-bottom: 4px;
-      }
+  div {
+    margin-top: 24px;
 
-      strong {
-        color: #000;
-      }
-
-      margin-bottom: 24px;
-    }
-
-    .description {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      color: var(--gray-500);
-      max-width: 100%;
-      p {
-        font-size: 14px
-      }
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      max-width: 448px;
-      padding: 12px 0;
-
-      font-weight: 400;
-      font-size: 14px;
+    h3 {
       text-transform: uppercase;
-      background-color: var(--blue-500);
-      border: none;
-      color: var(--white);
-      border-radius: 5px;
+      color: var(--gray-400);
+      font-weight: 500;
+      font-size: 16px;
+    }
 
-      &:hover {
-        cursor: pointer;
-        filter: brightness(80%);
-      }
-
-      svg {
-        width: 24px;
-        height: 24px;
-      }
-
-      @media (min-width: 768px) {
-        margin-top: 222px;
-      }
+    p {
+      margin-top: 12px;
+      font-size: 14px;
     }
   }
 `
@@ -126,8 +113,7 @@ interface SearchParamsProps {
   }
 }
 
-export default function Product({searchParams}: SearchParamsProps) {
-  
+export default function Product({ searchParams }: SearchParamsProps) {
   const { data } = useProduct(searchParams.id);
     
   const handleAddToCart = () => {
@@ -149,37 +135,32 @@ export default function Product({searchParams}: SearchParamsProps) {
       }
   }
   return (
-    <MainContainer>
-      <Link href="/">
-        <div>
-          <BackArrow/>
-          <span>Voltar</span>
-        </div>
-      </Link>
-      <MainContainerProduct>
-        <div className="productImage">
+    <DefaultPageLayout>
+      <MainContainer>
+        <BackButton navigate="/"/>
+        <section>
           <img src={data?.image_url} alt="" />
-        </div>
-        <div className="productDescription">
-          <div className="title">
-            <h3>{data?.name.split(" ")[0]}</h3>
-            <h1>{data?.name}</h1>
-            <strong>{formatPrice(data?.price_in_cents) ?? 0}</strong>
+          <div>
+            <ProductDescription>
+            <span>{data?.name.split(" ")[0]}</span>
+              <h2>{data?.name}</h2>
+              <span>{formatPrice(data?.price_in_cents ?? 0)}</span>
+              <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
+              <div>
+                <h3>Descrição</h3>
+                <p>{data?.description}</p>
+              </div>
+            </ProductDescription>
+            <button onClick={handleAddToCart}>
+              <CartIcon/>
+              Adicionar ao carrinho
+            </button>
           </div>
-          
-          <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$200,00.</p>
-          
-          <div className="description">
-            <h3>DESCRIÇÃO</h3>
-            <p>{data?.description}</p>
-          </div>
-          <button onClick={handleAddToCart}>
-            <CartIcon />
-            Adicionar ao carrinho
-          </button>
-        </div>
+        </section>
         
-      </MainContainerProduct>
-    </MainContainer>  
+      </MainContainer> 
+    </DefaultPageLayout>
+ 
+    
   )
 } 

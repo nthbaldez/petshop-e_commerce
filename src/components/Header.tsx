@@ -68,7 +68,7 @@ export default function Header() {
           handleChange={setSearch} 
           placeholder="Procurando por algo específico?"
         />
-        <CartControl />
+        <CartControl navigate="/cart"/>
       </SearchAndCartContainer>
     </HeaderContainer>
   )
