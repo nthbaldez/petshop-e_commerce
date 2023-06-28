@@ -6,6 +6,7 @@ import { formatPrice } from '@/utils/formatPrice';
 import styled from 'styled-components';
 import { DefaultPageLayout } from '@/components/DefaultPageLayout';
 import BackButton from '@/components/BackButton';
+import { useRouter } from 'next/navigation';
 
 const MainContainer = styled.main`
   display: flex;
@@ -15,7 +16,8 @@ const MainContainer = styled.main`
 
   section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     width: 100%;
     gap: 32px;
     margin-top: 24px;
@@ -53,6 +55,14 @@ const MainContainer = styled.main`
           opacity: 0.9;
         }
       }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
     }
   }
 `
@@ -114,25 +124,28 @@ interface SearchParamsProps {
 }
 
 export default function Product({ searchParams }: SearchParamsProps) {
+  const router = useRouter();
   const { data } = useProduct(searchParams.id);
     
   const handleAddToCart = () => {
-      let cartItems = localStorage.getItem('cart-items');
-      if (cartItems) {
-        let cartItemsArray = JSON.parse(cartItems);
-        
-        let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
+    let cartItems = localStorage.getItem('cart-items');
+    if (cartItems) {
+      let cartItemsArray = JSON.parse(cartItems);
+      
+      let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
 
-        if (existingProductIndex != -1){
-            cartItemsArray[existingProductIndex].quantity += 1;
-        } else {
-            cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
-        }
-        localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
+      if (existingProductIndex != -1){
+          cartItemsArray[existingProductIndex].quantity += 1;
       } else {
-        const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
-        localStorage.setItem('cart-items', JSON.stringify(newCart));
+          cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
       }
+      localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
+    } else {
+      const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
+      localStorage.setItem('cart-items', JSON.stringify(newCart));
+    }
+
+    router.push("/cart");
   }
   return (
     <DefaultPageLayout>
