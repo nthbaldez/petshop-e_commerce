@@ -4,6 +4,7 @@ import styled from "styled-components";
 import CartIcon from "./icons/CartIcon";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const CartButton = styled.button`
   position: relative;
@@ -30,6 +31,7 @@ interface CartControlProps {
 }
 
 export default function CartControl({ navigate }:CartControlProps ) {
+
   const router = useRouter();
 
   function handleNavigateToCart() {

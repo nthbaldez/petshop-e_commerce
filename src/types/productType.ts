@@ -6,3 +6,13 @@ export interface Product {
   description?: string,
   category?: string
 }
+
+export interface ProductInCart extends Product {
+  quantity: number
+}
+
+export interface CartItemProps {
+  product: ProductInCart
+  handleUpdateQuantity(id: string, quantity: number): void
+  handleDelete(id: string): void
+}

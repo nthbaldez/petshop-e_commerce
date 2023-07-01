@@ -17,7 +17,6 @@ const MainContainer = styled.main`
   section {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     width: 100%;
     gap: 32px;
     margin-top: 24px;
@@ -101,7 +100,7 @@ const ProductDescription = styled.div`
   }
 
   div {
-    margin-top: 24px;
+    margin-top: 60px;
 
     h3 {
       text-transform: uppercase;
@@ -127,7 +126,7 @@ export default function Product({ searchParams }: SearchParamsProps) {
   const router = useRouter();
   const { data } = useProduct(searchParams.id);
     
-  const handleAddToCart = () => {
+  function handleAddToCart() {
     let cartItems = localStorage.getItem('cart-items');
     if (cartItems) {
       let cartItemsArray = JSON.parse(cartItems);
@@ -147,6 +146,7 @@ export default function Product({ searchParams }: SearchParamsProps) {
 
     router.push("/cart");
   }
+  
   return (
     <DefaultPageLayout>
       <MainContainer>
