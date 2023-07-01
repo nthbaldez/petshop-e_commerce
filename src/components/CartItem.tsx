@@ -12,7 +12,7 @@ const Item = styled.li`
   align-items: center;
   justify-content: center;
   height: 210px;
-
+  width: 100%;
   border-radius: 8px;
   background-color: white;
   
