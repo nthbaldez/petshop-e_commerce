@@ -1,7 +1,12 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-export default function CartIcon() {
+interface CartIconProps {
+  color: string;
+}
+
+
+export default function CartIcon({ color }: CartIconProps) {
   return (
-    <AiOutlineShoppingCart size={30} color="#fff"/>
+    <AiOutlineShoppingCart size={30} color={color}/>
   )
 };

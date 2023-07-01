@@ -165,7 +165,7 @@ export default function Product({ searchParams }: SearchParamsProps) {
               </div>
             </ProductDescription>
             <button onClick={handleAddToCart}>
-              <CartIcon/>
+              <CartIcon color="#fff"/>
               Adicionar ao carrinho
             </button>
           </div>

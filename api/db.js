@@ -4,7 +4,7 @@ const TOTAL_PAGES = 5;
 
 const baseProducts = [
   { name: 'Ração Premier para cães', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1669836858199.jpg', category: 'DOGS' },
-  { name: 'Ração Golden Special para cães', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1658429301983.', category: 'DOGS' },
+  { name: 'Ração Fórmula Natural Pró para Cães Adultos de Porte Médio e Grande', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1647976999543.jpg', category: 'DOGS' },
   { name: 'Moletom para cães', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1647292785829.jpg', category: 'DOGS' },
   { name: 'Macacão para cães', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1669738862596.jpg', category: 'DOGS' },
   { name: 'Moletom Marvel para cães', description: faker.lorem.paragraph(), image_url: 'https://images.petz.com.br/fotos/1662144115438.jpg', category: 'DOGS' },

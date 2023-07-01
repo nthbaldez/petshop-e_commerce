@@ -41,7 +41,7 @@ export default function CartControl({ navigate }:CartControlProps ) {
 
   return (
     <CartButton onClick={handleNavigateToCart}>
-      <CartIcon />
+      <CartIcon color="#fff"/>
       {value.length > 0 && <CartCount>{value.length}</CartCount>}
     </CartButton>
   )

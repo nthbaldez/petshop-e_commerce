@@ -3,6 +3,7 @@
 import BackButton from "@/components/BackButton";
 import CartItem from "@/components/CartItem";
 import { DefaultPageLayout } from "@/components/DefaultPageLayout";
+import EmptyCart from "@/components/EmptyCart";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { ProductInCart } from "@/types/productType";
 import { formatPrice } from "@/utils/formatPrice";
@@ -148,24 +149,29 @@ export default function Cart() {
   return (
     <DefaultPageLayout>
       <Wrapper>
-        <MainContainer>
-          <BackButton navigate="/"/>
-          <header>
-            <h3>Seu Carrinho</h3>
-            <p>Total {items.length} produtos <strong>{cartTotalValue}</strong></p>
-          </header>
+        {
+          value.length == 0 ? 
+            <EmptyCart /> 
+        :
+          <MainContainer>
+            <BackButton navigate="/"/>
+            <header>
+              <h3>Seu Carrinho</h3>
+              <p>Total {items.length} produtos <strong>{cartTotalValue}</strong></p>
+            </header>
 
-          <CartList>
-            {items.map(item => 
-              <CartItem
-                handleUpdateQuantity={handleUpdateQuantity}
-                handleDelete={handleDelete} 
-                product={item} 
-                key={item.id}
-              />
-            )}
-          </CartList>
-        </MainContainer>
+            <CartList>
+              {items.map(item => 
+                <CartItem
+                  handleUpdateQuantity={handleUpdateQuantity}
+                  handleDelete={handleDelete} 
+                  product={item} 
+                  key={item.id}
+                />
+              )}
+            </CartList>
+          </MainContainer>
+        }
 
         <AsideContainer>
           <h3>Resumo do pedido</h3>

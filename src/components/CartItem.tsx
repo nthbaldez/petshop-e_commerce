@@ -96,7 +96,7 @@ export default function CartItem({ product, handleUpdateQuantity, handleDelete }
 
   return(
     <Item>
-      <img src={product.image_url}/>
+      <img src={product.image_url} alt="imagem do produto `${product.name}`"/>
       <InfoContainer>
         <h4>{product.name}</h4>
         <button onClick={() => handleDelete(product.id)}>
