@@ -172,7 +172,6 @@ export default function Cart() {
             </CartList>
           </MainContainer>
         }
-
         <AsideContainer>
           <h3>Resumo do pedido</h3>
           <TotalItem isBold={false}>
