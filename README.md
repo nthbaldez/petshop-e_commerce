@@ -57,6 +57,14 @@ npm install
 npm run dev
 ```
 
+How to start the api for the project
+
+```bash
+cd project-name
+cd api
+yarn start
+```
+
 <h2 id="colab">🤝 Collaborators</h2>
 
 <table>
