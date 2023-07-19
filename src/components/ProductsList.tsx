@@ -14,7 +14,6 @@ const ProductsContainer = styled.section`
 
 export function ProductsList() {
   const { data } = useProducts();
-  console.log(data)
 
   return (
     <ProductsContainer>

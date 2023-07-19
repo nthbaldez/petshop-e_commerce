@@ -30,7 +30,7 @@ const Item = styled.li`
 
   img {
     max-height: 100%;
-    width: 256px;
+    max-width: 256px;
     border-radius: 8px 0 0 8px;
   }
 

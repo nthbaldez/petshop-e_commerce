@@ -10,9 +10,12 @@ const FilterByTypeList = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   gap: 2.5rem;
   list-style-type: none;
+
+
 
 `
 
@@ -30,7 +33,6 @@ const FilterLI = styled.li<FilterLIProps>`
   border-bottom: ${props => props.selected ? '4px solid var(--blue-400)' : 'none'};
   cursor: pointer;
 `
-
 
 export default function FilterByType() {
 

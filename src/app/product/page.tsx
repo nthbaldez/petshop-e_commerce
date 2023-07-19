@@ -64,6 +64,18 @@ const MainContainer = styled.main`
       justify-content: center;
     }
   }
+
+  @media (max-width: 768px) {
+    section {
+      img { 
+        width: 100%;
+      }
+
+      button {
+        margin-top: 2rem;
+      }
+    }
+  }
 `
 const ProductDescription = styled.div`
   display: flex;
