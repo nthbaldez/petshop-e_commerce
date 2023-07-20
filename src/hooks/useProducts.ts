@@ -34,6 +34,7 @@ export function useProducts() {
     queryFn: () => fetchProducts(queryMounted),
     queryKey: ['products-data', type, priority], 
   });
+
   const allProducts = data?.data?.data?.allProducts;
   const filteredProductsBySearch = allProducts?.filter(product => product.name.toLowerCase().includes(searchDeferred.toLowerCase()));
 

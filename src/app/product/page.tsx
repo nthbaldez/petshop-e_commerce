@@ -137,7 +137,7 @@ interface SearchParamsProps {
 export default function Product({ searchParams }: SearchParamsProps) {
   const router = useRouter();
   const { data } = useProduct(searchParams.id);
-    
+  
   function handleAddToCart() {
     let cartItems = localStorage.getItem('cart-items');
     if (cartItems) {

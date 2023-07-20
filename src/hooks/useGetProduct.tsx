@@ -4,7 +4,7 @@ import { Product } from "@/types/productType";
 
 interface ProductsFetchResponse {
   data: {
-    allProducts: Product[]
+    Product: Product
   }
 }
 
@@ -31,7 +31,7 @@ export function useProduct(id: string){
         enabled: !!id,
         staleTime: 1000 * 60 * 5
     });
-    
+    console.log(data)
     return {
       data: data?.data?.data?.Product
     }
