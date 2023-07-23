@@ -29,7 +29,7 @@ export function useProducts() {
   const { type, priority, search } = useFilter();
   const searchDeferred = useDeferredValue(search);
   const queryMounted = mountQuery(type, priority);
-  
+
   const { data } = useQuery({
     queryFn: () => fetchProducts(queryMounted),
     queryKey: ['products-data', type, priority], 
@@ -37,7 +37,7 @@ export function useProducts() {
 
   const allProducts = data?.data?.data?.allProducts;
   const filteredProductsBySearch = allProducts?.filter(product => product.name.toLowerCase().includes(searchDeferred.toLowerCase()));
-
+  
   return {
     data: filteredProductsBySearch
   }
