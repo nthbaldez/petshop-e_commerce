@@ -10,8 +10,11 @@ interface DefaultProviderProps {
   children: ReactNode;
 }
 
+
 export default function DefaultProviders({ children }: DefaultProviderProps) {
+  
   const queryClient = new QueryClient();
+  
   return (
     <QueryClientProvider client={queryClient}>
       <FilterContextProvider>
