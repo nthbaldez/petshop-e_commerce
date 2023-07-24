@@ -11,8 +11,9 @@ interface DefaultProviderProps {
 }
 
 
+
 export default function DefaultProviders({ children }: DefaultProviderProps) {
-  
+
   const queryClient = new QueryClient();
   
   return (
