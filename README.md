@@ -11,9 +11,9 @@
     <b>A Pet Shop E-commerce builded with NextJS.</b>
 </p>
 
-<!-- <p align="center">
-  <a href="https://focustodo.vercel.app/">📱 Visit this Project</a>
-</p> -->
+<p align="center">
+  <a href="https://amigosdojohnny.vercel.app/">📱 Visit this Project</a>
+</p>
 
 <h2 id="layout">🎨 Layout</h2>
 
@@ -44,7 +44,7 @@ Here are the prerequisites to run this project:
 How to clone this project
 
 ```bash
-git clone https://github.com/nthbaldez/todo-app-typescript.git
+git clone https://github.com/nthbaldez/petshop-e_commerce.git
 ```
 
 <h3>Starting</h3>
@@ -83,7 +83,7 @@ yarn start
 
 Here you will explain how other developers can contribute to your project. For example, explaining how can create their branches, which patterns to follow and how to open an pull request
 
-1. `git clone https://github.com/nthbaldez/todo-app-typescript.git`
+1. `git clone https://github.com/nthbaldez/petshop-e_commerce.git`
 2. `git checkout -b feature/NAME`
 3. Follow commit patterns
 4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
