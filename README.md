@@ -11,10 +11,6 @@
     <b>A Pet Shop E-commerce builded with NextJS.</b>
 </p>
 
-<p align="center">
-  <a href="https://amigosdojohnny.vercel.app/">📱 Visit this Project</a>
-</p>
-
 <h2 id="layout">🎨 Layout</h2>
 
 <p align="center">
