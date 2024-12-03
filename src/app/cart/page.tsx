@@ -89,7 +89,7 @@ const ShopFinishBtn = styled.button`
     opacity: 0.8;
   }
 `
-const TotalItem = styled.div<{ isBold: boolean}>`
+const TotalItem = styled.div<{ isBold: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,8 +112,8 @@ const Divider = styled.span`
 
 export default function Cart() {
   const { value, updateLocalStorage } = useLocalStorage<ProductInCart[]>("cart-items", []);
-  const [ items, setItems ] = useState<ProductInCart[]>([]);
-  
+  const [items, setItems] = useState<ProductInCart[]>([]);
+
   const calculateTotalValue = (items: ProductInCart[]) => {
     return items.reduce((total, item) => total += (item.price_in_cents * item.quantity), 0)
   }
@@ -144,33 +144,33 @@ export default function Cart() {
     setItems(itemsList);
   }
 
-  
+
 
   return (
     <DefaultPageLayout>
       <Wrapper>
         {
-          value.length == 0 ? 
-            <EmptyCart /> 
-        :
-          <MainContainer>
-            <BackButton navigate="/"/>
-            <header>
-              <h3>Seu Carrinho</h3>
-              <p>Total {items.length} produtos <strong>{cartTotalValue}</strong></p>
-            </header>
+          value.length == 0 ?
+            <EmptyCart />
+            :
+            <MainContainer>
+              <BackButton navigate="/" />
+              <header>
+                <h3>Seu Carrinho</h3>
+                <p>Total {items.length} produtos <strong>{cartTotalValue}</strong></p>
+              </header>
 
-            <CartList>
-              {items.map(item => 
-                <CartItem
-                  handleUpdateQuantity={handleUpdateQuantity}
-                  handleDelete={handleDelete} 
-                  product={item} 
-                  key={item.id}
-                />
-              )}
-            </CartList>
-          </MainContainer>
+              <CartList>
+                {items.map(item =>
+                  <CartItem
+                    handleUpdateQuantity={handleUpdateQuantity}
+                    handleDelete={handleDelete}
+                    product={item}
+                    key={item.id}
+                  />
+                )}
+              </CartList>
+            </MainContainer>
         }
         <AsideContainer>
           <h3>Resumo do pedido</h3>
@@ -179,13 +179,13 @@ export default function Cart() {
             <p>{cartTotalValue}</p>
           </TotalItem>
           <TotalItem isBold={false}>
-              <p>Entrega</p>
-              <p>{formatPrice(deliveryFee)}</p>
+            <p>Entrega</p>
+            <p>{formatPrice(deliveryFee)}</p>
           </TotalItem>
-          <Divider/>
+          <Divider />
           <TotalItem isBold>
-              <p>Total</p>
-              <p>{cartTotalWithDelivery}</p>
+            <p>Total</p>
+            <p>{cartTotalWithDelivery}</p>
           </TotalItem>
           <ShopFinishBtn>FINALIZAR COMPRA</ShopFinishBtn>
         </AsideContainer>

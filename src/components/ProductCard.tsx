@@ -3,6 +3,8 @@ import { formatPrice } from "@/utils/formatPrice";
 import styled from "styled-components";
 import { Tooltip } from '@chakra-ui/react'
 import Link from 'next/link';
+import Image from 'next/image'
+import NoImage from '/public/sem-image.png'
 
 interface ProductCardProps {
   name: string;
@@ -67,7 +69,7 @@ const Card = styled.div`
 export function ProductCard({price, name, imageURL, id}: ProductCardProps) {
   const priceFormatted = formatPrice(price);
   const nameFormatted = formatDescription(name);
-
+  console.log(imageURL)
   return (
     <Link 
       href={{
@@ -81,7 +83,7 @@ export function ProductCard({price, name, imageURL, id}: ProductCardProps) {
       }}
     >
       <Card>
-      <img src={imageURL} alt={name} />
+      <Image src={imageURL ?? '/public/sem-imagem.png'} alt={name} width={256} height={300}/>
         <div>
           <Tooltip label={name} placement='top' bg='gray' color='white' hasArrow>
             <h3>{nameFormatted}</h3>

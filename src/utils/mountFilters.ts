@@ -2,7 +2,6 @@ import { FilterTypes } from "@/types/filterTypes";
 import { PriorityTypes } from "@/types/priorityTypes";
 
 export function getCategoryByType(type: FilterTypes) {
-
   if (type === FilterTypes.DOGS) return "DOGS";
   if (type === FilterTypes.CATS) return "CATS";
   return "";
@@ -31,7 +30,7 @@ export const mountQuery = (type: FilterTypes, priority: PriorityTypes) => {
   const categoryFilter = getCategoryByType(type)
   
   return `
-  query {
+    query {
       allProducts(sortField: "${sortSettings.field}", sortOrder: "${sortSettings.order}", category: "${categoryFilter}") {
         id
         name

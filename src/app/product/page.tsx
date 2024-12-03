@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { DefaultPageLayout } from '@/components/DefaultPageLayout';
 import BackButton from '@/components/BackButton';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'
 
 const MainContainer = styled.main`
   display: flex;
@@ -146,9 +147,9 @@ export default function Product({ searchParams }: SearchParamsProps) {
       let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
 
       if (existingProductIndex != -1){
-          cartItemsArray[existingProductIndex].quantity += 1;
+        cartItemsArray[existingProductIndex].quantity += 1;
       } else {
-          cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
+        cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
       }
       localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
     } else {
@@ -164,7 +165,7 @@ export default function Product({ searchParams }: SearchParamsProps) {
       <MainContainer>
         <BackButton navigate="/"/>
         <section>
-          <img src={data?.image_url} alt="" />
+          <Image src={data?.image_url ?? ''} alt="" />
           <div>
             <ProductDescription>
             <span>{data?.name.split(" ")[0]}</span>

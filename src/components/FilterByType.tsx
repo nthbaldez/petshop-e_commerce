@@ -14,9 +14,6 @@ const FilterByTypeList = styled.ul`
 
   gap: 2.5rem;
   list-style-type: none;
-
-
-
 `
 
 const FilterLI = styled.li<FilterLIProps>`

@@ -20,7 +20,6 @@ interface ProductsFetchResponse {
 
 const fetchProducts = (query: string): AxiosPromise<ProductsFetchResponse> => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
-  console.log(API_URL);
   return axios.post(API_URL, { query });
 }
 

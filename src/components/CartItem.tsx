@@ -5,7 +5,7 @@ import { ChangeEvent } from "react"
 import styled from "styled-components"
 import { CartItemProps } from "@/types/productType"
 import DeleteIcon from "./icons/DeleteIcon"
-
+import Image from 'next/image'
 
 const Item = styled.li`
   display: flex;
@@ -96,7 +96,7 @@ export default function CartItem({ product, handleUpdateQuantity, handleDelete }
 
   return(
     <Item>
-      <img src={product.image_url} alt="imagem do produto `${product.name}`"/>
+      <Image src={product.image_url} alt="imagem do produto `${product.name}`"/>
       <InfoContainer>
         <h4>{product.name}</h4>
         <button onClick={() => handleDelete(product.id)}>

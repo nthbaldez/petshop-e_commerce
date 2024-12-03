@@ -11,7 +11,8 @@ interface ProductsFetchResponse {
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 const fetcher = (productId: string): AxiosPromise<ProductsFetchResponse> => {
-  return axios.post(API_URL,{ query: `
+  return axios.post(API_URL, {
+    query: `
   query {
     Product(id: "${productId}"){
       name
@@ -24,15 +25,15 @@ const fetcher = (productId: string): AxiosPromise<ProductsFetchResponse> => {
   ` })
 }
 
-export function useProduct(id: string){
-    const { data }  = useQuery({
-        queryFn: () => fetcher(id),
-        queryKey: ['product', id],
-        enabled: !!id,
-        staleTime: 1000 * 60 * 5
-    });
-    console.log(data)
-    return {
-      data: data?.data?.data?.Product
-    }
+export function useProduct(id: string) {
+  const { data } = useQuery({
+    queryFn: () => fetcher(id),
+    queryKey: ['product', id],
+    enabled: !!id,
+    staleTime: 1000 * 60 * 5
+  });
+  console.log(data)
+  return {
+    data: data?.data?.data?.Product
+  }
 }

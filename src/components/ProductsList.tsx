@@ -17,15 +17,15 @@ export function ProductsList() {
 
   return (
     <ProductsContainer>
-      { data?.map(product => 
-          <ProductCard
-            key={product.id} 
-            name={product.name}
-            imageURL={product.image_url}
-            id={product.id}
-            price={product.price_in_cents}
-          />
-        )
+      {data?.map(product =>
+        <ProductCard
+          key={product.id}
+          name={product.name}
+          imageURL={product.image_url}
+          id={product.id}
+          price={product.price_in_cents}
+        />
+      )
       }
     </ProductsContainer>
   )
