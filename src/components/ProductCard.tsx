@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Tooltip } from '@chakra-ui/react'
 import Link from 'next/link';
 import Image from 'next/image'
-import NoImage from '/public/sem-image.png'
 
 interface ProductCardProps {
   name: string;

@@ -165,7 +165,7 @@ export default function Product({ searchParams }: SearchParamsProps) {
       <MainContainer>
         <BackButton navigate="/"/>
         <section>
-          <Image src={data?.image_url ?? ''} alt="" />
+          <Image src={data?.image_url ?? '/public/sem-imagem.png'} alt={data?.description ?? ''} width={640} height={600}/>
           <div>
             <ProductDescription>
             <span>{data?.name.split(" ")[0]}</span>
